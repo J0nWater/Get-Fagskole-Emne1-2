@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        let timeAndDate = '2024-01-01 17:00';
+
+        const msInHour = 1000 * 60 * 60;
+        const msInDay = msInHour * 24;
+
+        function updateView() {
+            let date = new Date(timeAndDate);
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>                   
+                    ${getFormattedDate(date)}
+                </h1>
+                <button onclick="addTime(msInDay)">+1 dag</button>
+                <button onclick="addTime(-msInDay)">-1 dag</button>
+                <button onclick="addTime(msInHour)">+1 time</button>
+                <button onclick="addTime(-msInHour)">-1 time</button>
+                <button onclick="nextMonth()">til neste måned</button>
+            `;
+        }
+
+        function addTime(changeInMs) {
+            let date = new Date(timeAndDate);
+            let newDate = new Date(date.getTime() + changeInMs);
+            timeAndDate = newDate.toISOString();
+            updateView();
+        }
+
+        function nextMonth() {   
+            // Alternativ 1         
+            let date = new Date(timeAndDate);
+            let startMonth = date.getMonth();
+            let newDate = new Date(date.setMonth(startMonth+1));
+            timeAndDate = newDate.toISOString();
+
+            // Alternativ 2
+            // while(date.getMonth() == startMonth) {
+            //     let time = date.getTime();
+            //     time += msInDay;
+            //     date = new Date(time);
+            // }
+            // timeAndDate = date.toISOString();
+
+            updateView();
+        }
+
+        // Gammel versjon for å legge på en dag
+        // function addDay() {
+        //     let date = new Date(timeAndDate);
+        //     let newDate = new Date(date.getTime() + msInDay);
+        //     timeAndDate = newDate.toISOString();
+        //     updateView();
+        // }
+
+
+        // Vi må formatere datoene manuelt :(
+        function getFormattedDate(date) {
+            return `
+                ${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}
+                `; 
+        }
+    </script>
+</body>
+
+</html>

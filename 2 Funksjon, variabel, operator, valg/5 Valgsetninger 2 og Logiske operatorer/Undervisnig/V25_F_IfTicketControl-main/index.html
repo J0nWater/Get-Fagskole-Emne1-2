@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ticket{
+            border: 1px solid black;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Velkommen til Skidata!</h1>
+
+    Vennligst skriv inn din alder:
+    <input id="age" type="number"><br>
+    Hvor mange timer skal du stå i bakken?
+    <input id="hours" type="number"><br>
+    <button onclick="ticketControl()">Bekreft</button>
+
+    <div id="ticket"></div>
+    <script>
+        // - Timespris på 100 kr. 100 * 5
+
+        // Barnebillett: 40% rabatt, (pris * 0.6)
+        // Voksenbillett: 0% rabatt
+        // Seniorbillett: 25% rabatt, (pris * 0.75)
+        let price = 0; 
+        let hourPrice = 100;
+
+        function ticketControl(){
+            let age = document.getElementById('age').value
+            let hours = document.getElementById('hours').value
+            let ticketType = ''
+
+            if(age <= 16){
+                price = hourPrice * hours * 0.6
+                ticketType = 'Barnebillett'
+            } else if (age >= 67){
+                price = hourPrice * hours * 0.75
+                ticketType = 'Honnørbillett'
+            } else {
+                price = hourPrice * hours
+                ticketType = "Voksenbillett"
+            }
+            showTicket(ticketType)
+        }
+
+        function showTicket(typeTicket){
+            document.getElementById('ticket').innerHTML = /*HTML*/`
+            <div class="ticket">
+                <p>SKIDATA</p>
+                <h3>${typeTicket}</h3>
+                <p>Gyldig til... neste gang</p>
+            </div>
+            Pris: ${price}kr <button>Betal</button>
+            `;
+        }
+
+        // function calculatePrice(){
+        //     price = 
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid black;
+            width: 200px;
+            height: 300px;
+            padding: 2px;
+        }
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+
+    <script>
+        const app = document.getElementById('app');
+        let pokemons = ["Pikachu", "Geodude", "Snorlax", "Charmander", "Lugia", "Lucario"];
+        let selectedPokemons = [];
+        let selectedPokemon = "";
+
+        updateView()
+        function updateView(){
+            app.innerHTML = /*HTML*/`
+            <select onchange="selectedPokemon = this.value">
+                ${createOptionsHtml()}   
+            </select>
+            <button onclick="createPokemon()">Create</button>
+
+            <div class="cards">
+                ${createPokemonCardsHtml()}
+            </div>
+            `
+        }
+
+        function createPokemonCardsHtml(){
+            let html = "";
+            for(let pokemon in selectedPokemons){
+                html += /*HTML*/`
+                    <div class="card">
+                        <h2>${selectedPokemons[pokemon]}</h2>
+                        <hr>
+                        <p>Lorem ipsum dolor</p>
+                    </div>
+                `
+            }
+            return html;
+        }
+
+        function createPokemon(){
+            selectedPokemons.push(selectedPokemon)
+            updateView()
+        }
+
+        function createOptionsHtml(){
+            let html = "";
+            for(let pokemon of pokemons){
+                html += `<option value="${pokemon}">${pokemon}</option>`
+            }
+            return html;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141 D</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+        let app = document.getElementById('app');
+        let fName;
+        let email;
+        let errorMsg = '';
+
+        function updateView() {
+            app.innerHTML = /*Html*/`
+                <form>
+                    <label for="fname">Enter your name</label><br>
+                    <input type="text" onchange="fName = this.value"  value="${fName ? fName : ''}" name="fname" placeholder="name"><br>    
+
+                    <label for="emailAddress">Enter your email address</label><br>
+                    <input type="email" onchange="email = this.value" value="${email ? email : ''}" name="emailAddress" placeholder="email">
+                </form>
+                <div style="color: red">${errorMsg}</div><br>
+
+                <button onclick='showUserPage()'>Register</button>
+            `;
+        }
+
+        function showUserPage() {
+            if(fName && fName !== '' && email && email !== '') {
+                app.innerHTML = /*HTML*/`
+                    <div>${fName} ${email}</div>
+                    <button onclick="updateView()">Edit</button>
+                `;
+            }
+            else{
+                errorMsg = 'All fields must be filled out!';
+                updateView();
+                errorMsg = '';
+            }
+        }
+
+    </script>
+</body>
+</html>

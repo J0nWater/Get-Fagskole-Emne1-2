@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Circle M</h1>
+    <p>Fylle ut bensinspris og liter bensin</p>
+
+    Liter bensin: <input id="amount" type="number"><br>
+    Bensinspris: <input id="price" type="number">
+    <button onclick="calculate()">Kalkuler</button>
+    <div id="result"></div>
+
+    <div>
+        <h3>Lommebok!</h3>
+        Cash: <div id="wallet">0</div>
+    </div>
+
+    <script>
+        let cash = 2000;
+        let gasAmount;
+        let gasPrice;
+        let totalAmount;
+        document.getElementById('wallet').innerHTML = cash + 'kr'
+        
+        function calculate(){
+            gasAmount = document.getElementById('amount').valueAsNumber
+            gasPrice = document.getElementById('price').valueAsNumber
+            totalAmount = gasAmount * gasPrice;
+            document.getElementById('result').innerHTML = /*HTML*/`
+                <div>Total pris er ${totalAmount} kr</div>
+                <button onclick="pay(totalAmount)">Betal</button>
+            `
+        }
+        function pay(amount){
+            if(cash >= amount){
+                cash = cash - amount;
+                document.getElementById('wallet').innerHTML = cash + 'kr'
+            } 
+        }
+
+    </script>
+</body>
+</html>

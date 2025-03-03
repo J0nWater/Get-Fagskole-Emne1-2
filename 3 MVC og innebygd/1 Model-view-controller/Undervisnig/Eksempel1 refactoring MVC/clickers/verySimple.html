@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+
+<body style="text-align: center;">
+<h1 style="color: green;">
+  Clicks with time in html!
+</h1>
+
+<h4>
+  How to count the number of
+  times a button is clicked?
+</h4>
+
+<button id="btn" onclick="addToCount()">Click Here!</button>
+
+<p>
+  Button Clicked <span id="display">0</span> Times
+</p>
+
+<script>
+  let count = 0;
+
+  function addToCount() {
+    document.getElementById("display").innerHTML = count++;
+  }
+
+</script>
+</body>
+</html>

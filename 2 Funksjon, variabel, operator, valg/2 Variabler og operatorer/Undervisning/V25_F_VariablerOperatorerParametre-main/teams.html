@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input">
+
+    <button onclick="addPersonToTeam(1)">1</button>
+    <button onclick="addPersonToTeam(2)">2</button>
+    <button onclick="addPersonToTeam(3)">3</button>
+    <button onclick="addPersonToTeam(4)">4</button>
+    <button onclick="addPersonToTeam(5)">5</button>
+
+
+    <ul>
+        <li id="1">Team 1</li>
+        <li id="2">Team 2</li>
+        <li id="3">Team 3</li>
+        <li id="4">Team 4</li>
+        <li id="5">Team 5</li>
+    </ul>
+
+    <script>
+        function addPersonToTeam(team){
+            document.getElementById(team).innerHTML += " " + document.getElementById('input').value
+        }
+        // function moveInputToTeam1(number){
+        //     document.getElementById('1').innerHTML += " " + document.getElementById('input').value
+        // }
+        // function moveInputToTeam2(number){
+        //     document.getElementById('2').innerHTML += " " + document.getElementById('input').value
+        // }
+        // function moveInputToTeam3(number){
+        //     document.getElementById('3').innerHTML += " " + document.getElementById('input').value
+        // }
+        // function moveInputToTeam4(number){
+        //     document.getElementById('4').innerHTML += " " + document.getElementById('input').value
+        // }
+        // function moveInputToTeam5(number){
+        //     document.getElementById('5').innerHTML += " " + document.getElementById('input').value
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+Litt til om skjemaer i MVC
+1: drop down
+2: "hjemmelagd" HTML
+
+3: Innebygd funksjonalitet for tall
+- Heltall vs desimaltall
+- Pluss, minus, gange, dele og parenteser - modulus
+- omgjøring
+  - tekst til tall: Number og parseInt inkludert forskjeller
+  - tall til tekst: ‘’+ toFixed() toLocaleString()
+- Math
+  - round, ceil og floor
+  - min og max
+  - random
+
+4: Guess the number     
+
+5: Innebygd funksjonalitet for tekst
+    - charAt(), charCodeAt(), String.fromCharCode()
+    - includes()
+    - indexOf() og lastIndexOf()
+    - length
+    - repeat()
+    - replace() og replaceAll()
+    - startsWith() og endsWith()
+    - substr() og substring()
+    - toLowerCase() og toUpperCase()
+    - trim(), trimEnd() og trimStart()
+    

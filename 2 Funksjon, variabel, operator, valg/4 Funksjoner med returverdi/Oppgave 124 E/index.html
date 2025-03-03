@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124 E</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${createDiv('Hei', 'blue', 'white')}
+            
+            `;
+        }
+
+        function createDiv(text, backgroundColor, foregroundColor) {
+            if(backgroundColor == '' && foregroundColor == '') {
+                return /*HTML*/`<div>${text}</div>`
+            }
+            else {
+                return /*HTML*/`<div style="background-color: ${backgroundColor}; color: ${foregroundColor}">${text}</div>`
+            }
+        }
+    </script>
+</body>
+</html>

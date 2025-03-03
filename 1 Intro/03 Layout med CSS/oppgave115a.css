@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 150px 5fr ;
+    grid-template-rows: 40px 1fr 40px ;
+    grid-template-areas: 
+        'header header'
+        'meny hovedinnhold'
+        'footer footer'
+    ;
+}
+
+.header {
+    grid-area: header;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meny {
+    grid-area: meny;
+    background-color: lightblue;
+}
+
+.main {
+    grid-area: hovedinnhold;
+    background-color: lightgreen;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightpink;
+}

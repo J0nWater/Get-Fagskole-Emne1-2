@@ -1,0 +1,45 @@
+body {
+    background-color: #03262c;
+    color: white;
+    display: flex;
+    flex-direction: column;    
+}
+
+#scorePoints {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 255px 255px 255px;
+    grid-template-rows: 172px 172px;
+    place-self: center;
+    margin-top: 50px;
+    background-color: burlywood;
+    border-radius: 15px;
+    padding: 3px;
+    gap: 3px;
+}
+
+.hiddenImgStyle {
+    background-color: cornflowerblue;
+    margin: 2px;
+    border-radius: 15px;
+}
+
+.cardHidden {
+    opacity: 0;
+}
+
+.cardShow {
+    
+}
+
+img{
+width: 250px;
+-webkit-user-drag: none;
+border-radius: 15px;
+cursor: pointer;
+}
+

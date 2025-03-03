@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 152 A</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+        .app {
+            display: flex;
+            flex-direction: column;
+         }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app" class="app"></div>
+    
+    <script>
+        let numbers = [];
+        
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${showNumbers()}
+            `;
+        }
+
+        function showNumbers() {
+            for(let i = 100; i < 1000; i += 7){
+                numbers.push(i);
+            }
+            return numbers;
+        }
+    </script>
+</body>
+</html>

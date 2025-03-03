@@ -1,0 +1,149 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #03262c;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #04333a;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    height: 100vh;
+    transition: width 0.3s;
+}
+
+.sidebar.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+h1 {
+    color: #aad8d3;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #aad8d3;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+h3::before {
+    content: '📁 ';
+    margin-right: 5px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+}
+
+li {
+    margin: 8px 0;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #aad8d3;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+a::before {
+    content: '📄 ';
+    margin-right: 5px;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.folder {
+    display: none;
+}
+
+.folder.open {
+    display: block;
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #aad8d3;
+    color: #03262c;
+    border: none;
+    padding: 15px 5px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 16px;
+    z-index: 1000;
+    width: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn::before {
+    content: '☰'; /* Trys horizontalūs brūkšniai */
+}
+
+.toggle-btn:hover {
+    background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .content {
+        padding: 10px;
+    }
+    .toggle-btn {
+        top: auto;
+        bottom: 10px;
+        left: 0;
+        transform: none;
+        border-radius: 0 5px 5px 0;
+    }
+}

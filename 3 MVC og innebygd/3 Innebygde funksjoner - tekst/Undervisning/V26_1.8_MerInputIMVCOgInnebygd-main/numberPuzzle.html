@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number puzzle</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+        }
+
+        #app>div {
+            border: 2px solid gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 300%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        // model
+        let board = '73541 286';
+
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${createSquareHtml(0)}
+                ${createSquareHtml(1)}
+                ${createSquareHtml(2)}
+                ${createSquareHtml(3)}
+                ${createSquareHtml(4)}
+                ${createSquareHtml(5)}
+                ${createSquareHtml(6)}
+                ${createSquareHtml(7)}
+                ${createSquareHtml(8)}                
+            `;
+        }
+
+        function createSquareHtml(index) {
+            return /*HTML*/`
+                <div onclick="swap(${index})">${board.charAt(index)}</div>
+            `;
+        }
+
+        function swap(index) {
+            let blankIndex = board.indexOf(' ');
+            let selectedNumber = board.charAt(index);
+            board = board.replace(' ', 'x');
+            board = board.replace(selectedNumber, ' ');
+            board = board.replace('x', selectedNumber);
+
+            updateView();
+        }
+
+        function areNeighbours(firstIndex, secondIndex) {
+            
+        }
+    </script>
+
+</body>
+</html>

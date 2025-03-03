@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 50vw;
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>        
+        // Model
+        let greenLevel = 0;
+        let blueLevel = 0;
+        let redLevel = 150;
+
+
+        // View        
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div id="main" style="background-color: rgb(${redLevel}, ${greenLevel}, ${blueLevel});"></div>
+                <button onclick="moreGreen()">Mer grønt</button>            
+                <button onclick="moreBlue()">Mer blått</button>
+                <button onclick="moreRed()">Mer rødt</button>
+            `;
+        }
+
+        // Controller
+        function moreGreen() {
+            greenLevel += 25;
+            updateView();
+        }
+
+        function moreBlue() {
+            blueLevel += 25;
+            updateView();
+        }
+
+        function moreRed() {
+            redLevel += 25;
+            updateView();
+        }
+
+
+
+        // Gammel versjon uten MVC :(
+        // function moreGreen() {
+        //     let mainDiv = document.getElementById('mainDiv');
+        //     // hente ut nåværende verdier
+        //     let backgroundColor = mainDiv.style.backgroundColor;
+        //     let firstCommaIndex = backgroundColor.indexOf(',');
+        //     let secondCommaIndex = backgroundColor.indexOf(',', firstCommaIndex + 1);
+        //     let part1 = backgroundColor.substring(0, firstCommaIndex + 1);
+        //     let green = backgroundColor.substring(firstCommaIndex + 1, secondCommaIndex);
+        //     let part2 = backgroundColor.substring(secondCommaIndex);
+
+        //     // øke grønt
+        //     green = parseInt(green) + 25;
+
+        //     // legge tilbake
+        //     mainDiv.style.backgroundColor = part1 + green + part2;
+        // }
+    </script>
+</body>
+
+</html>

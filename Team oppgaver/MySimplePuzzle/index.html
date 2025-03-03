@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamoppgave</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body onload="updateView()">
+    <div style="display: grid; grid-template-columns: 32em auto; grid-template-rows: auto 8em; height: 95vh; grid-template-areas: 'board text' ' buttons buttons' ' buttons buttons'">
+        <div id="board" style="grid-area: board;"></div>
+        <div id="exerciseText" style="overflow-y: scroll;height: 32em;grid-area: text;"></div>
+        <div id="buttons" style="background-color: lightblue;grid-area: buttons;"></div>
+    </div>
+    <script src="javascript.js"></script>
+        
+</body>
+
+</html>

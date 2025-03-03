@@ -1,0 +1,15 @@
+0.5: Fullføre calendar
+Lister / arrays
+1: Intro i console
+  - lage array, tom eller med verdier
+  - lese ut enkeltverdier
+  - endre enkeltverdier
+  - utvide listen
+  - loope gjennom en liste
+1.5: Array i save money?
+2: Eksempel med MVC - liste av farger
+  - CRUD - Create Read Update Delete
+3: Flere eksempler på bruk av lister
+  - Telle antall forekomster ut fra kriterie
+  - Sjekke om en liste er sortert
+4: Ev. problematikk rundt at lister er referansetype

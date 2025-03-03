@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number puzzle</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+        }
+
+        #app>div {
+            border: 2px solid gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 300%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        // model
+        let board = '73541 286';        
+
+        updateView();
+
+        function updateView() {
+            let squareHtml = '';
+            for(let i = 0; i < board.length; i++) {
+                squareHtml += createSquareHtml(i);
+            }       
+                 
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${squareHtml}              
+            `;
+        }
+
+        function createSquareHtml(index) {
+            return /*HTML*/`
+                <div onclick="swap(${index})">${board.charAt(index)}</div>
+            `;
+        }
+
+        function swap(index) {            
+            let blankIndex = board.indexOf(' ');
+            if(!areNeighbours(index, blankIndex)) return;
+            let selectedNumber = board.charAt(index);
+            board = board.replace(' ', 'x');
+            board = board.replace(selectedNumber, ' ');
+            board = board.replace('x', selectedNumber);
+
+            updateView();
+        }
+
+        function areNeighbours(firstIndex, secondIndex) {
+            const firstRowIndex = Math.floor(firstIndex / 3);
+            const firstColIndex = firstIndex % 3;
+            const secondRowIndex = Math.floor(secondIndex / 3);
+            const secondColIndex = secondIndex % 3;
+            return isDirectlyAboveOrBelow(firstRowIndex, secondRowIndex, firstColIndex, secondColIndex)
+                || isDirectlyLeftOrRight(firstRowIndex, secondRowIndex, firstColIndex, secondColIndex);            
+        }
+
+        function isDirectlyAboveOrBelow(firstRowIndex, secondRowIndex, firstColIndex, secondColIndex) {
+            return (
+                firstColIndex == secondColIndex 
+                && Math.abs(secondRowIndex - firstRowIndex) == 1
+            )
+        }
+
+        function isDirectlyLeftOrRight(firstRowIndex, secondRowIndex, firstColIndex, secondColIndex) {
+            return (
+                firstRowIndex == secondRowIndex 
+                && Math.abs(firstColIndex - secondColIndex) == 1
+            );  
+        }
+    </script>
+
+</body>
+</html>

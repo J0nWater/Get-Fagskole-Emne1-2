@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124 G</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+        let numberOfDay = 1;
+        let numberOfMonth = 1;
+        let numberOfYear = 2020;
+        
+        function updateView() {
+            document.getElementById('app').innerHTML = 
+                createNumberSelector(numberOfDay, 1, 31, 'Day')
+                + createNumberSelector(numberOfMonth, 1, 12, 'Month')
+                + createNumberSelector(numberOfYear, 1986, 2025, 'Year')
+                + `<div>${numberOfDay}.${numberOfMonth}.${numberOfYear}</div>`;
+        }
+
+        function createNumberSelector(curentNumber, minNumber, maxNumber, pickerType) {
+            return /*HTML*/`
+                <div style="display: flex;align-items: center;">
+                    <div style="font-size: 300%;">${curentNumber}</div>
+                    <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                        <button onclick="select${pickerType}(1)" ${curentNumber == maxNumber ? 'disabled' : ''}>▲</button>
+                        <button onclick="select${pickerType}(-1)" ${curentNumber == minNumber ? 'disabled' : ''}>▼</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectDay(buttonValue) {
+            numberOfDay += buttonValue;
+            updateView()
+        }
+        
+        function selectMonth(buttonValue) {
+            numberOfMonth += buttonValue;
+            updateView()
+        }
+
+        function selectYear(buttonValue) {
+            numberOfYear += buttonValue;
+            updateView()
+        }
+
+    </script>
+</body>
+</html>

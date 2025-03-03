@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124 B, C, D</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+        //Model
+        let celsius = 10;
+        let fahrenheit = 50;
+        let convertedToFahrenheit = null;
+        let convertedToCelsius = null;
+
+        //View
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${convertTemperature(celsius)}
+            `;
+        }
+
+        //Controller
+        function convertTemperature(temperature) {
+            if(temperature == celsius) {
+                convertedToFahrenheit = celsius * 9/5 + 32;
+                return /*HTML*/`<div>${celsius} Celsius is ${convertedToFahrenheit} Fahrenheit</div>` 
+            }
+            else {
+                convertedToCelsius = (fahrenheit - 32) * 5/9;
+                return /*HTML*/`<div>${fahrenheit} Fahrenheit is ${convertedToCelsius} Celsius</div>` 
+            }
+        }
+    </script>
+</body>
+</html>

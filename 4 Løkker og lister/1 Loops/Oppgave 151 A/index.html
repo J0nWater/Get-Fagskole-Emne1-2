@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 151 A</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        //Model
+        let textInput = 'labas';
+        let maksLength = 8;
+        let result = '';
+
+        //View
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                
+                <button onclick="doubleText()">Repeat</button>
+                <div>${result}</div>
+            `;
+            
+        }
+
+        //Controller
+        doubleText()
+        function doubleText() {
+            for(let i = 0; i < maksLength; i++) {
+                
+                result = textInput.charAt(i);
+                
+                console.log(result);
+            }
+            updateView();
+        }
+    </script>
+                    <!-- Text<br>
+                    <input type="text" onchange="textInput=this.value"><br>
+                    Max length<br>
+                    <input type="number" onchange="maksLength=this.value"><br> -->
+</body>
+</html>

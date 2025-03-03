@@ -1,0 +1,13 @@
+Plan: Heiskortssystem!
+- Skille mellom
+	- Barnebillett (16 år og under)
+	- Voksenbillett 
+	- Seniorbillett (67 år og over)
+- Få et skiheiskort (i html) med "billettypen", deretter 
+pris med mulighet for å betale!
+
+- Timespris på 100 kr. 
+
+Barnebillett: 40% rabatt, (pris * 0.6)
+Voksenbillett: 0% rabatt
+Seniorbillett: 25% rabatt, (pris * 0.75) 

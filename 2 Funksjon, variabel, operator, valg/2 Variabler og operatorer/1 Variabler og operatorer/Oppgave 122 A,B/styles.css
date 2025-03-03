@@ -1,0 +1,31 @@
+body {
+    background-color: #03262c;
+    color: white;
+    display: flex;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+}
+
+#app {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    grid-template-areas: 
+        '. up .'
+        'left . right'
+        '. down .'
+        ;
+}
+
+#board>div {
+    border: 1px solid lightblue;
+}
+
+.selected {
+    background-color: yellow;
+}

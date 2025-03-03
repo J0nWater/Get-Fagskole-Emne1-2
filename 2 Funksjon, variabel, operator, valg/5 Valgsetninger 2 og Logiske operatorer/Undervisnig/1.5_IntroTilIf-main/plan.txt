@@ -1,0 +1,21 @@
+Andre eksempler på returverdi
+    1. Flere eksempler som lager HTML - DRY = Don't repeat yourself
+
+Introdusere 
+    if-setninger
+    logiske verdier 
+    sammenligninger
+    logiske operatorer
+    else og else if
+
+1. Enkel introduksjon i konsoll: 
+    - confirm, logisk verdi, if, else
+    - enkel counter
+2. Enkelt clicker game med upgrade: if, logisk verdi, sammenligne tall
+3. Gjette hemmelig ord - sammenliging av tekst
+4. Kjøpe øl i butikken 
+    - plakat
+    - enkelt GUI
+    - code2flow.com
+    - sette sammen - enkelt GUI og logikk
+    - skrive enklere ved hjelp av logiske operatore

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 152 C</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        //model
+        let squares = [1, 2, 5, 7, null, 3, 4, 8, 6];
+        
+        //view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div class="container">${createBoard()}</div>
+            `;
+        }
+
+        function createBoard() {
+            let html = '';
+            for(let square of squares) {
+                html += /*HTML*/`<div class="square" onclick="changeSquarePosition()">${square}</div>`;
+            }
+            return html;
+        }
+
+        //controller
+        function changeSquarePosition() {
+            for(let square of squares) {
+
+            }
+        }
+    </script>
+</body>
+</html>

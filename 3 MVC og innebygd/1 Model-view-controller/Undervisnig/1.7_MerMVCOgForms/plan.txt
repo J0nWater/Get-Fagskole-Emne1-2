@@ -1,0 +1,47 @@
+Eksempel 1 - Tre måter variere HTML - meldingsbokser for suksess, advarsel, info og feil
+ - Variabel og if
+ - Funksjon
+ - Ternary operator / nullish coalescing operator
+ - null og undefined
+
+Eksempel 2 - Skjemaer i MVC - vi lagrer også brukerinput i modellen!
+ - input tekst
+ - input tall
+ - input checkbox og radioknapp
+ - drop down
+ - "hjemmelagd" HTML
+
+Ev. fortsette på klikker-spill
+
+Ev. eksempel 3 - Innebygd funksjonalitet for tall, tilfeldige tall
+    Tall
+    - Heltall vs desimaltall
+    - Pluss, minus, gange, dele og parenteser - modulus
+    - omgjøring
+    - tekst til tall: Number og parseInt inkludert forskjeller
+    - tall til tekst: ‘’+ toFixed() toLocaleString()
+    - Math
+    - round, ceil og floor
+    - min og max
+    - random
+    eksempel: guess the number
+
+    Tekst
+    - charAt(), charCodeAt(), String.fromCharCode()
+    - includes()
+    - indexOf() og lastIndexOf()
+    - length
+    - repeat()
+    - replace() og replaceAll()
+    - startsWith() og endsWith()
+    - substr() og substring()
+    - toLowerCase() og toUpperCase()
+    - trim(), trimEnd() og trimStart()
+    eksempel: tallpuslespill
+
+    Dato og klokkeslett
+    - Date-objekter
+    - ISO-string
+    - visnings-string
+    - millisekunder siden 1.1.1970
+    - telle dager, uker, osv

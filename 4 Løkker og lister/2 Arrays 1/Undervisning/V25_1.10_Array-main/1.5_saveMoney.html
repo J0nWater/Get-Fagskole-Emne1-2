@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings calculator</title>
+    <style>
+        label,
+        button {
+            display: block;
+            margin-top: 5px;
+        }
+
+        input {
+            width: 90vw;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+    <script>
+        let savingsPerMonth = 0;
+        let savingsGoal = 0;
+        let monthlySavings = [];
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <label>Sparing pr måned:</label> <input type="number" onchange="savingsPerMonth = this.valueAsNumber"><br>
+                <label>Sparemål:</label> <input type="number" onchange="savingsGoal = this.valueAsNumber"><br>
+                <button onclick="calculateSavingsPlan()">Regn ut</button><br>
+                ${monthlySavings.length > 0 ? createSavingPlanHtml() : ''}
+            `;
+        }
+
+        function createSavingPlanHtml() {
+            let savingsListHtml = '<ul>';
+            
+            let month = 1;
+            for(let monthlySaving of monthlySavings) {
+                savingsListHtml += `<li>Etter måned ${month} har du spart: ${monthlySaving}</li>`;                          
+                month++;
+            }
+            // for(let i = 0; i < monthlySavings.length; i++) {                
+            //     savingsListHtml += `<li>Etter måned ${i+1} har du spart: ${monthlySavings[i]}</li>`;                          
+            // }
+
+            savingsListHtml += '</ul>';
+
+            return savingsListHtml;
+        }
+
+        function calculateSavingsPlan() {
+            monthlySavings = [];
+            let totalSaved = 0;
+
+            while (totalSaved < savingsGoal) {                
+                totalSaved += savingsPerMonth;
+                monthlySavings.push(totalSaved)                
+            }
+
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

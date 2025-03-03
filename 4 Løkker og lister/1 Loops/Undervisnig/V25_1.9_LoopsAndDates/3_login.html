@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Very secure login</title>
+</head>
+
+<body>    
+    <script>        
+        let password = "secret";
+        let input = prompt("Enter password:");
+        
+        while(input !== password) {
+            input = prompt("Wrong password. Try again");
+        }
+
+        alert("Access granted!");
+        // if(input !== password) {
+        //     alert('Wrong password! Access denied');
+        // } else {
+        //     alert("Access granted!");
+        // }  
+    </script>
+</body>
+</html>

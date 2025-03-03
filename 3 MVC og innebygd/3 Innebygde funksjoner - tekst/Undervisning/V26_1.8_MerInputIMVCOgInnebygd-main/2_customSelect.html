@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .checkbox {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            font-size: 18px;
+        }
+
+        .checkbox span {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: 2px solid lightblue;
+            border-radius: 4px;
+            margin-right: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let isDarkMode = false;
+
+        // view
+        updateView();
+        function updateView() {            
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>Bla bla</h1>
+                <p>
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                </p>
+                ${createDarkmodeCheckboxHtml()}
+                ${createCheckbox('setIsDarkMode()', 'Dark mode', isDarkMode)}
+                <br/>
+            `;            
+
+            let darkColor = '#121212';
+            let lightColor = 'white';
+
+            document.body.style.backgroundColor = isDarkMode ? darkColor : lightColor;
+            document.body.style.color = isDarkMode ? lightColor : darkColor;
+        }
+
+        // Spesifikk funksjon - kan bare brukes for å lage en spesifikk checkbox
+        function createDarkmodeCheckboxHtml() {
+            return /*HTML*/`
+                <div class="checkbox" onclick="setIsDarkMode()">
+                        <span>${isDarkMode ? 'X' : ''}</span>Dark mode
+                </div>
+            `;
+        }
+
+        // Generisk funksjon - kan brukes for å lage mange forskjellige typer checkboxer
+        function createCheckbox(onclickFunction, text, checked) {
+            return /*HTML*/`
+                <div class="checkbox" onclick="${onclickFunction}">
+                        <span>${checked ? 'X' : ''}</span>${text}
+                </div>
+            `;
+        }
+
+        // controller
+        function setIsDarkMode() {
+            isDarkMode = !isDarkMode;
+            // if(isDarkMode) {
+            //     isDarkMode = false;
+            // } else {
+            //     isDarkMode = true;
+            // }
+                     
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>

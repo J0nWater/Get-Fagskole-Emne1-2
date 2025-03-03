@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.3 ShareCosts 1</title>
+</head>
+<body>
+    Per har betalt: <input id="paidPer" type="number"><br>
+    Pål har betalt: <input id="paidPål" type="number"><br>
+    Espen har betalt: <input id="paidEspen" type="number"><br>
+    <button onclick="calculate()">Beregn</button>
+    <div id="app"></div>    
+    <script>
+        /*
+            Tre ting vi gjør med variabler
+                1: deklarere
+                2: tilordne = legge verdi inn i en variabel
+                3: bruke verdien, dvs hente ut fra variabelen
+        */
+
+        // let myName; // Deklarasjon        
+        // myName = 'Dag'; // Tilordning        
+        // let myName = 'Dag'; // Både deklarasjon og tilordning
+        //document.getElementById('paidPer').valueAsNumber;
+        function calculate() {
+            let amountPaidPer = document.getElementById('paidPer').valueAsNumber;
+            let amountPaidPål = document.getElementById('paidPål').valueAsNumber;
+            let amountPaidEspen = document.getElementById('paidEspen').valueAsNumber;
+            let totalAmountPaid = amountPaidPer + amountPaidPål + amountPaidEspen;
+            let costPerPerson = totalAmountPaid / 3;
+            let perOwes = costPerPerson - amountPaidPer;
+            let pålOwes = costPerPerson - amountPaidPål;
+            let espenOwes = costPerPerson - amountPaidEspen;
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                Per har betalt: ${amountPaidPer}<br>
+                Pål har betalt: ${amountPaidPål}<br>
+                Espen har betalt: ${amountPaidEspen}<br>
+                Sum betalt: ${totalAmountPaid}<br>
+                Kostnad per person: ${costPerPerson} <br>
+                Per skylder: ${perOwes}<br>
+                Pål skylder: ${pålOwes}<br>
+                Espen skylder: ${espenOwes}
+            `;
+        }
+        
+
+
+
+    </script>    
+</body>
+</html>

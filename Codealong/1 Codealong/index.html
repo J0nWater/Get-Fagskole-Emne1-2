@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>Oslo</div>
+    <div id="oslo"></div>
+    <button onclick="showWeather('oslo', 'Regner')">vis vær</button>
+    
+    <div>Drammen</div>
+    <div id="drammen"></div>
+    <button onclick="showWeather('drammen', 'Snør')">vis vær</button>
+
+    <div>Moss</div>
+    <div id="moss"></div>
+    <button onclick="showWeather('moss', 'Sludd')">vis vær</button>
+    
+
+    <script>
+        function showWeather(city, weather) {
+            document.getElementById(city).innerHTML = weather;
+            
+        }
+        
+    </script>
+</body>
+</html>

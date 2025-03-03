@@ -1,0 +1,15 @@
+- Se på et enkelt klikker-spill med og uten MVC. 
+
+- Tegne og forklare litt om MVC og noen begreper rundt dette
+	  - separation of concerns
+	  - design patterns
+	  - model-view-controller
+
+- Endring av farger med og uten MVC. 
+
+- Om vi får tid skal vi se hvor mange ganger jeg klarer å klikke på en sirkel
+
+ - Veien videre: Innebygget i JavaScript
+   - Tall, tilfeldige tall
+   - Tekst
+   - Datoer

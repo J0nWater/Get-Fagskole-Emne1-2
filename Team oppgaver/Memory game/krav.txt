@@ -1,0 +1,5 @@
+Krav
+    Spillet skal ha et rutenett med kort (f.eks 4x4)
+    Kortene skal være synlige når de klikkes på, og skjules hvis de ikke matcher
+    Kortene skal inneholde bilder av (søte) dyr
+    Når alle parene er matchet skal det vises en melding om at spillet er over

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light v3 auto</title>
+    <style>
+        #trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }        
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        showRed();
+        
+        function showRed() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="trafficLight" onclick="showRedAndYellow()">
+                <div class="light" style="background-color: red;"></div>
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            </div>
+            `;
+            setTimeout(showRedAndYellow, 2000);
+        }
+
+        function showRedAndYellow() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="trafficLight" onclick="showGreen()">
+                <div class="light" style="background-color: red;"></div>
+                <div class="light" style="background-color: yellow;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            </div>
+            `;
+            setTimeout(showGreen, 2000);
+        }
+
+        function showGreen() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="trafficLight" onclick="showYellow()">
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: green;"></div>
+            </div>
+            `;
+            setTimeout(showYellow, 2000);
+        }
+
+        function showYellow() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="trafficLight" onclick="showRed()">
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: yellow;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            </div>
+            `;
+            setTimeout(showRed, 2000);
+        }
+
+    </script>
+</body>
+</html>

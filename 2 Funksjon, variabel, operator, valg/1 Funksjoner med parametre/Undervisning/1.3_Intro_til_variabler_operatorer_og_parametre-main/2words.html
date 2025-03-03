@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 words</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        let count = 0;
+
+        addColoredText('green', 400, 'Det');
+        addColoredText('red', 240, 'var');
+        addColoredText('blue', 600, 'en');
+        addColoredText('rgb(200, 200, 42)', 500, 'gang');
+        
+        
+        function addColoredText(color, size, word) {            
+            count++;
+            document.getElementById('app').innerHTML += /*HTML*/`
+            <span style="color: ${color}; font-size: ${size}%">${word} (${count})</span>`;
+        }
+
+        // addGreen('Det');
+        // addRed();
+
+        // document.getElementById('app').innerHTML = /*HTML*/`
+        //     <span style="color: green; font-size: 400%">Det</span>
+        //     <span style="color: red; font-size: 240%">var</span>
+        //     <span style="color: blue; font-size: 600%">en</span>
+        //     <span style="color: rgb(200, 200, 42); font-size: 500%">gang</span>        
+        // `;
+
+        // function addGreen(word) {           
+        //     document.getElementById('app').innerHTML += /*HTML*/`
+        //     <span style="color: green; font-size: 400%">${word}</span>`;
+        // }
+
+        // function addRed(word) {
+        //     document.getElementById('app').innerHTML += /*HTML*/`
+        //     <span style="color: red; font-size: 240%">${word}</span>
+        //     `;
+        // }
+    </script>
+</body>
+</html>

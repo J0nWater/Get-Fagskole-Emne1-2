@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light v2</title>
+    <style>
+        #trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }        
+    </style>
+</head>
+<body>
+    <div id="trafficLight"></div>    
+    <script>
+        showYellow();
+        
+        function showYellow() {
+            document.getElementById('trafficLight').innerHTML = /*HTML*/`
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: yellow;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            `;
+        }
+
+    </script>
+</body>
+</html>

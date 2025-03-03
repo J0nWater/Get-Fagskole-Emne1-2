@@ -1,0 +1,25 @@
+Litt repetisjon - eksempel: trafikklys
+    1. Hardkode i HTML
+    2. Flytte til JavaScript
+    3. Lage funksjonalitet
+    4. Refactoring = gjøre koden bedre, men sjekke at den gjør det samme
+        a. med parametre - tips: bruke diff
+        b. med delfunksjoner, men uten returverdi (.innerHTML += )
+        c. med returverdi
+
+        https://no.wikipedia.org/wiki/Trafikklys
+
+Andre eksempler på returverdi
+    5. Flere eksempler som lager HTML - DRY = Don't repeat yourself
+    6. Eksempler som ikke lager HTML - innspill fra dere       
+
+if(remainingTime == 'plenty') {
+    Introdusere if-setninger, enkle sammenligninger og logiske verdier
+        7. Enkel introduksjon
+        8. Kjøpe øl i butikken 
+        - plakat
+        - enkelt GUI
+        - code2flow
+        - sette sammen - enkelt GUI og logikk        
+        9. Enkelt clicker game
+}

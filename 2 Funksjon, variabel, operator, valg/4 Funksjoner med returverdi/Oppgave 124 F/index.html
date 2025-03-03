@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124 F</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${createGrid(3, 2, 
+                    createDiv('Kol 1 rad 1')
+                    + createDiv('Kol 2 rad 1')
+                    + createDiv('Kol 3 rad 1')
+                    + createDiv('Kol 1 rad 2')
+                    + createDiv('Kol 2 rad 2')
+                    + createDiv('Kol 3 rad 2')
+                )}
+            `;
+        }
+
+        function createGrid(columnCount, rowCount, innerHtml) {
+           return /*HTML*/`<div style="display: grid; grid-template-columns: repeat(${columnCount}, auto);grid-template-rows: repeat(${rowCount}, auto)">
+                ${innerHtml}
+            </div>`;
+        }
+
+        function createDiv(kolRadNumber) {
+            return /*HTML*/`
+                <div>${kolRadNumber}</div>
+            `;
+        }
+        
+    </script>
+</body>
+</html>

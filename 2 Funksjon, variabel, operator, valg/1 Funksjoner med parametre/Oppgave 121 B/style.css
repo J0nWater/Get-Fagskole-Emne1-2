@@ -1,0 +1,41 @@
+body {
+    background-color: #03262c;
+    color: white;
+}
+
+.inputs {
+    display: flex;
+    gap: 5px;
+    margin: 20px;
+    
+}
+
+.inputs input {
+    width: 30px;
+    margin-right: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    color: black;
+    margin-left: 20px;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+th {
+    background-color: #04AA6D;
+    color: white;
+}

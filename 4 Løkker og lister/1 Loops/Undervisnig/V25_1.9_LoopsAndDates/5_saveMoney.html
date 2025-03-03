@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings calculator</title>
+    <style>
+        label,
+        button {
+            display: block;
+            margin-top: 5px;
+        }
+
+        input {
+            width: 90vw;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+    <script>
+        let savingsPerMonth = 0;
+        let savingsGoal = 0;
+        let savingsText = '';
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <label>Sparing pr måned:</label> <input type="number" onchange="savingsPerMonth = this.valueAsNumber"><br>
+                <label>Sparemål:</label> <input type="number" onchange="savingsGoal = this.valueAsNumber"><br>
+                <button onclick="calculateSavingsPlan()">Regn ut</button><br>
+                ${savingsText != '' ? createSavingPlanHtml() : ''}
+            `;
+        }
+
+        function createSavingPlanHtml() {
+            // let savingsListHtml = '<ul>';
+            // let start = 0;
+            // let index;
+
+            // while ((index = savingsText.indexOf('|', start)) !== -1) {
+            //     let part = savingsText.substring(start, index);
+            //     if (part) {
+            //         savingsListHtml += `<li>${part}</li>`;
+            //     }
+            //     start = index + 1;
+            // }
+            
+            // let lastPart = savingsText.substring(start);
+            // if (lastPart) {
+            //     savingsListHtml += `<li>${lastPart}</li>`;
+            // }
+
+            // savingsListHtml += '</ul>';
+            // return savingsListHtml;
+            let textParts = savingsText.split('|');
+            let savingsListHtml = '<ul>';
+            for(let i = 0; i < textParts.length; i++) {
+                if(textParts[i] != '') {
+                    savingsListHtml += `<li>${textParts[i]}</li>`;
+                }                
+            }
+
+            savingsListHtml += '</ul>';
+
+            return savingsListHtml;
+        }
+
+        function calculateSavingsPlan() {
+            let months = 0;
+            let totalSaved = 0;
+
+            while (totalSaved < savingsGoal) {
+                months++;
+                totalSaved += savingsPerMonth;
+                savingsText += `Etter ${months} måneder: ${totalSaved}|`;
+            }
+
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

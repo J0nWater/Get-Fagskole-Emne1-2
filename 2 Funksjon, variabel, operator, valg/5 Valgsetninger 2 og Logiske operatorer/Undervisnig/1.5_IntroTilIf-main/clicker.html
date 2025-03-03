@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker 3000</title>
+</head>
+<body>
+    Poeng: <span id="points">0</span>
+    <button onclick="addPoints()">Klikk her</button>
+    <button onclick="upgrade()">Oppgrader</button>
+
+    <script>
+        let points = 0;
+        let pointsPerClick = 1;
+        let upgradeCost = 20;
+
+        function addPoints() {
+            points += pointsPerClick;
+            showPoints();
+        }
+
+        function upgrade() {
+            if(points >= upgradeCost) {
+                pointsPerClick++;
+                points -= upgradeCost;
+                showPoints();
+            } 
+        }        
+
+        function showPoints() {
+            document.getElementById('points').innerHTML = points;
+        }
+    </script>
+</body>
+</html>

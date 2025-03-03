@@ -1,0 +1,16 @@
+div.trafficLight {
+    width: 3rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 15px;
+}
+
+div.light {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}

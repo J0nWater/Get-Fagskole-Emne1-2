@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0
+        }
+        .container {
+            display:grid;
+            justify-content: center;
+            grid-template-columns: repeat(2, 50px);
+            grid-template-rows: repeat(2, 50px);
+            grid-template-areas: 'number up'
+                                 'number down';
+        }
+        .number {
+            grid-area: number;
+            font-size: 55px;
+        }
+        .up {
+            grid-area: up;
+        }
+        .down {
+            grid-area: down;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="number">0</h1>
+        <button class="up">Opp</button>
+        <button class="down">Ned</button>
+    </div>
+
+    <ul>
+        <li>asd</li>
+        <li>asd</li>
+        <li>asd</li>
+        <li>asd</li>
+    </ul>
+
+    <select>
+        <option>asd</option>
+        <option>asd</option>
+        <option>asd</option>
+        <option>asd</option>
+    </select>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    background-color: #03262c;
+    color: rgb(251, 255, 0);
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 305px;
+    height: 305px;
+    background-color: #ffd093;
+    padding: 4px;
+    border-radius: 5px;
+
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 95px;
+    border-radius: 5px;
+    background-color: #006319;
+    font-size: xx-large;
+    user-select: none;
+    cursor: pointer;
+}
+

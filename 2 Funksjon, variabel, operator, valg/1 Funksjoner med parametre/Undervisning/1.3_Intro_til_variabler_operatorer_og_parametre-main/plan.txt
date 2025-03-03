@@ -1,0 +1,39 @@
+## Plan
+Dagens plan: 
+ - variabler
+ - operatorer 
+ - parametre
+
+Eksempel 1 - fordele kostnader - variabler og operatorer
+Eksempel 2 - legge til ord     - funksjoner med parametre
+Eventuelt Eksempel 3 - flytte logo 
+
+ Eksempel 1 - fordele kostnader
+  - variabler 
+    - deklarasjon
+    - tilordning
+    - lese/bruke verdi
+  - operatorer 
+    - tilordning 
+    - pluss
+    - minus
+    - dele
+  - lage HTML med verdier fra variabler
+  - "appifisere" - tall fra inputs
+  
+
+Eksempel 2 - legge til ord 
+ - ulik tekst, farge og størrelse manuelt
+ - det samme med parametre
+   - hva vinner vi? feks hente fra skjema
+ - variere også tagg
+ - telle ord - lokale vs globale variabler
+ - tilordning 
+   - "vanlig"
+   - endring
+   - endre med én
+
+ Eventuelt Eksempel 3 - flytte logo 
+ - forenkle kode med parametre 
+ - refactoring
+ - DRY

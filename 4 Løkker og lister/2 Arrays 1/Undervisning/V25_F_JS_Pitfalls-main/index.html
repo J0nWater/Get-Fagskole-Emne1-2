@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS downfalls</title>
+</head>
+
+<body>
+    <script>
+        // Eksempel 1: fjerne alle partall fra et array
+        let numbers = [1, 2, 3, 4, 5, 6, 6, 9, 8, 8, 4, 4];
+        for (let i = 0; i < numbers.length; i++) {            
+            if (numbers[i] % 2 == 0) {
+                numbers.splice(i, 1);                
+            }
+        }
+        console.log(numbers);
+        // Problem: vi endrer arrayet mens vi looper på det. 
+        // Lengden blir endret og vi ender med å hoppe over items
+        // Bedre alternativ: lag NYTT fremfor å endre (alternativt kan man loope baklengs)
+        numbers = [1, 2, 3, 4, 5, 6, 6, 9, 8, 8, 4, 4];
+        let oddNumbers = [];
+        for (let i = 0; i < numbers.length; i++) {            
+            if (numbers[i] % 2 != 0) {        
+                oddNumbers.push(numbers[i]);
+            }
+        }
+        console.log(oddNumbers);
+
+
+        // Eksempel 2: fjerne alt som ikke er tekst fra en string
+        let myText = 'Dette -er en tekst.....';        
+        console.log(removeAllNonLetters(myText));
+        function removeAllNonLetters(text) {
+            let cleanText = '';
+            for(let i = 0; i < text.length; i++) {
+                if(!isLetter(text[i])) {                    
+                    text = text.replace(text[i], '');
+                }
+            }
+
+            return text;
+        }
+        // Problem: samme som over.. Vi endrer arrayet mens vi looper
+        // Samme løsning. Lag NYTT fremfor å endre
+            // let myText = 'Dette -er en tekst.....';        
+            // console.log(removeAllNonLetters(myText));
+            // function removeAllNonLetters(text) {
+            //     let cleanText = '';
+            //     for(let i = 0; i < text.length; i++) {
+            //         if(isLetter(text[i])) {
+            //             cleanText += text[i];
+            //         }
+            //     }
+
+            //     return cleanText;
+            // }
+
+        function isLetter(character) {
+            return character.toLowerCase() != character.toUpperCase();
+        }
+
+        // Eksempel 3: type-sammenligning
+        // console.log(1 == '1');
+        // console.log(1 === '1');
+        // Problem? JavaScript er fleksibel. Kanskje vi faktisk trengte å sammenligne mot tall også
+        // Løsning: bruk strict comparision (===) som hovedregel
+
+        // Eksempel 4
+        // Globale variabler?
+        // if (true) {
+        //     var y = 'Hallo';
+        // }
+        // console.log(y);
+
+        // if (true) {
+        //     let x = 'Heia';
+        // }
+        // console.log(x);
+        // Problem: var lager en global variabel. At y nå er globalt kan by på uventende konsekvenser
+        // Løsning: Bruk "let" eller "const", alltid. IKKE bruk var.
+
+        // Eksempel 4.5: Hva med denne?
+        // for (let i = 0; i < 3; i++) {
+        //     setTimeout(() => console.log(i), 1000);
+        // }
+        // Problem: tilsvarende som over. i blir global blir satt til 3, og det blir outputten i hver console
+        // Løsning: bruk let
+
+
+
+        // Eksempel 5: null eller undefined?
+        // let veryImportantVariable;
+        // console.log(veryImportantVariable);
+        // console.log(veryImportantVariable == null);
+        // console.log(veryImportantVariable === null);    
+        // Problem? undefined og null regnes som det samme med dobbelt erlik
+        // Kanskje er det det vi vil? Unntak til regel om trippel erlik?
+        // Viktig å være bevisst på at det finnes to ulike måter å skrive "ingenting" (null, undefined) i JS    
+
+
+        // Eksempel 6: semikolon
+        // let greeting = sayHello('Dag');
+        // console.log(greeting);
+        // function sayHello(name) {
+        //     return 
+        //          `Hello ${name}`;
+        // }
+        // Problem: javascript legger automatisk til semikolon før newline. Her blir det semikolon etter return;
+        // Dvs: funksjonen stopper før den faktisk returnerer teksten. 
+        // Løsning: ingen spesifikk løsning. Pass på at hver linje blir avsluttet riktig
+
+
+
+        // (Søkt) eksempel 7. Mangler semikolon
+        // let a = 5
+        // let b = 10
+
+        // let result = a + b
+        // (function () {
+        //         console.log("Funksjonen ble kjørt!")
+        //     })()
+        // Problem: dette er et ganske vagt problem for å vise at noen ganger så fører manglende semikolon til feil
+        // når vi ikke har semikolon etter let result = a + b så blir b regnet som et funksjonskall, på en funksjon som ikke eksisterer
+        // Løsning: alltid bruk semikolon. Det er ingen grunn til å droppe det.
+    </script>
+</body>
+
+</html>

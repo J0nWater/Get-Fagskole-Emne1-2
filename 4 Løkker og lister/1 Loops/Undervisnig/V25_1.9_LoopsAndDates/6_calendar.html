@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        let timeAndDate = '2024-01-01';
+
+        function updateView() {
+            let date = new Date(timeAndDate);
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>
+                    ${date.toLocaleString()}
+                </h1>
+                <button onclick="addDay()">+1 dag</button>
+                <button>-1 dag</button>
+                <button>+1 time</button>
+                <button>-1 time</button>
+                <button>til neste måned</button>
+            `;
+        }
+
+        function addDay() {
+            let date = new Date(timeAndDate);
+            let newDate = new Date(date.getTime() + 1000 * 60 * 60 * 24);
+            timeAndDate = newDate.toISOString();
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App with message v3</title>
+    <link rel="stylesheet" href="appWithMessage.css">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div class="alert success">
+                <div class="alert-content">
+                    <span class="icon">✔</span>
+                    <div class="message-text">
+                        <strong>SUCCESS!</strong>
+                        <p>Place your success message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert warning">
+                <div class="alert-content">
+                    <span class="icon">⚠</span>
+                    <div class="message-text">
+                        <strong>WARNING!</strong>
+                        <p>Place your warning message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert error">
+                <div class="alert-content">
+                    <span class="icon">✖</span>
+                    <div class="message-text">
+                        <strong>ERROR!</strong>
+                        <p>Place your error message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="alert info">
+                <div class="alert-content">
+                    <span class="icon">ℹ</span>
+                    <div class="message-text">
+                        <strong>INFO!</strong>
+                        <p>Place your info message here!</p>
+                    </div>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Model
+        let message = null;
+        let messageType = 'warning';
+
+        // View
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${createMessageHtml()}`;
+        }
+
+        function createMessageHtml() {
+            if(message == null) {
+                return 'Ingen notifikasjon';
+            }
+            // if (!message || !messageType) {
+                
+            // }
+
+            let icon = '';
+            let header = '';
+            if (messageType === 'error') {
+                icon = '✖';
+                header = 'FEIL!'
+            } else if (messageType === 'warning') {
+                icon = '⚠';
+                header = 'ADVARSEL!'
+            } else if (messageType === 'info') {
+                icon = 'ℹ';
+                header = 'INFO!'
+
+            } else {
+                icon = '✔';
+                header = 'SUKSESS!'
+            }
+
+
+            return /*HTML*/`
+                <div>
+                    <div class="alert ${messageType}">
+                        <div class="alert-content">
+                            <span class="icon">${icon}</span>
+                            <div class="message-text">
+                                <strong>${header}</strong>
+                                <p>${message}</p>
+                            </div>
+                        </div>
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Controller
+    </script>
+</body>
+
+</html>

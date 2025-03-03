@@ -1,0 +1,26 @@
+body {
+    background-color: #03262c;
+    color: white;
+}
+
+.class1 {
+    width: 600px;
+    font-size: 35px;
+    font-family: fantasy;
+    background-color: coral;
+    margin: 50px 10px 20px 30px;
+    padding: 30px 0 30px 110px;
+    border: double white 10px;
+    border-radius: 10px;
+}
+
+.class2 {
+    width: 600px;
+    font-size: 25px;
+    font-family: cursive;
+    background-color: brown;
+    margin: 50px 10px 20px 30px;
+    padding: 40px 0 40px 140px;
+    border: solid #b6b31e 4px;
+    border-radius: 20px;
+}

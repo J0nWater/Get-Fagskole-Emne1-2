@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let isDarkMode = false;
+
+        // view
+        updateView();
+        function updateView() {
+            let customCheckBoxHtml = ``;
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>Bla bla</h1>
+                <p>
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                    Bla bla bla.Bla bla bla.Bla bla bla.
+                </p>
+                 <input type="checkbox" 
+                    onchange="setIsDarkMode(this.checked)" ${isDarkMode ? 'checked' : ''}>Dark mode
+                <br/>
+            `;            
+
+            let color1 = '#121212';
+            let color2 = 'white';
+
+            document.body.style.backgroundColor = isDarkMode ? color1 : color2;
+            document.body.style.color = isDarkMode ? color2 : color1;
+        }
+
+        // controller
+        function setIsDarkMode(value) {
+            isDarkMode = value;
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>

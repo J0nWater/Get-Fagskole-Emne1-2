@@ -1,0 +1,15 @@
+#app3 {
+    margin: 40px;
+}
+
+.task3 .form {
+    display: grid;
+    grid-template-columns: 120px 200px;
+}
+
+.task3 .favoriteLanguage {
+    margin-top: 7px;
+    display: grid;
+    grid-template-columns: 30px 100px;
+    justify-items: start;
+}

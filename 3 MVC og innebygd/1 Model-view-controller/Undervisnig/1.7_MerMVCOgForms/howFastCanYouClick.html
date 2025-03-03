@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We must click faster!</title>
+    <style>
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            user-select: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }        
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script> 
+        // Model
+        let clicks = 0;
+        let started = false;
+        let clickEnabled = true;
+        let fontSize = 12;
+
+
+        // View
+        function updateView() {            
+            // let resultHtml = '';
+            // if(!clickEnabled) {
+            //     resultHtml = `<div>Du klarte ${clicks} klikk!`;
+            // }
+
+            document.getElementById('app').innerHTML = /*HTML*/`                
+                <div class="circle" 
+                    style="font-size: ${fontSize}px"
+                    ${clickEnabled ? 'onclick="circleClicked()"' : ''}
+                >
+                    ${clicks}
+                </div>
+                ${clickEnabled ? '' : `<div>Du klarte ${clicks} klikk!`}                                
+            `;
+        }       
+
+        // Controller
+        function circleClicked() {
+            if(!started) {
+                started = true;
+                setTimeout(stop, 10000);
+            }
+            clicks++;
+            if(clicks % 10 == 0) {
+                fontSize += 5;
+            }            
+            updateView();
+        }
+
+        function stop() {
+            clickEnabled = false;
+            started = false;
+            updateView();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141 C</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+        //Model
+        let textColor = null;
+        let backgroundColor = null;
+
+        //View
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${addSelectTag(
+                    'textColor',
+                    'selectTextColor',
+                    addColorOption(textColor, '') +
+                    addColorOption(textColor, 'red') +
+                    addColorOption(textColor, 'yellow') +
+                    addColorOption(textColor, 'green') +
+                    addColorOption(textColor, 'blue') +
+                    addColorOption(textColor, 'lime')+
+                    addColorOption(textColor, 'black')
+                )}
+                
+                ${addSelectTag(
+                    'backgroundColor',
+                    'selectBackgroundColor',
+                    addColorOption(backgroundColor, '') +
+                    addColorOption(backgroundColor, 'red') +
+                    addColorOption(backgroundColor, 'yellow') +
+                    addColorOption(backgroundColor, 'green') +
+                    addColorOption(backgroundColor, 'blue') +
+                    addColorOption(backgroundColor, 'lime')+
+                    addColorOption(backgroundColor, 'black')
+                )}
+                <br>
+                <button onclick="addDiv()">Add div</button>
+                `;
+        }
+
+        //Controller
+        function addSelectTag(variableName, selectVariable, option) {
+            return /*HTML*/`
+                <div>${selectVariable}
+                    <select onchange="${variableName} = this.value; updateView()">
+                        ${option}
+                    </select>
+                </div>
+            `;
+                console.log(variableName)
+        }
+        
+        function addColorOption(variableValue, color) {
+            return /*HTML*/`<option value="${color}" style="background-color: ${color};" ${variableValue === color ? 'selected' : ''}>${color || ''}</option>`;
+        }
+
+        function addDiv() {
+            if (textColor && textColor !== '' && backgroundColor && backgroundColor !== '') {
+                document.body.innerHTML += /*HTML*/`
+                <div style="color: ${textColor}; background-color: ${backgroundColor};">
+                    Text color <big>${textColor}</big>, background color <big>${backgroundColor}</big>
+                </div>
+                `;
+            }
+        console.log('text color', textColor, 'background color', backgroundColor)
+
+        }
+    </script>
+</body>
+</html>

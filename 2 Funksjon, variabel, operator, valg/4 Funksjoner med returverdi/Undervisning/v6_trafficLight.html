@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light v6</title>
+    <style>
+        #trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }        
+    </style>
+</head>
+<body>
+    <h1>DRY - Don't Repeat Yourself</h1>
+    <div id="app"></div>
+
+    <script>        
+        showRed();
+        
+        function showRed() {            
+            show('showRedAndYellow()', 'red', 'gray', 'gray');
+        }
+
+        function showRedAndYellow() {
+            show('showGreen()', 'red', 'yellow', 'gray');
+        }
+
+        function showGreen() {
+            show('showYellow()', 'gray', 'gray', 'green');
+        }
+
+        function showYellow() {
+            show('showRed()', 'gray', 'yellow', 'gray');
+        }
+
+        function show(onclickFunction, topColor, middleColor, bottomColor) {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="trafficLight" onclick="${onclickFunction}">
+                ${createLampHtml(topColor)}
+                ${createLampHtml(middleColor)}
+                ${createLampHtml(bottomColor)}
+            </div>
+            `;          
+        }
+
+        function createLampHtml(color) {            
+            return /*HTML*/`
+                <div class="light" style="background-color: ${color};"></div>
+            `;
+        }
+
+    </script>
+</body>
+</html>

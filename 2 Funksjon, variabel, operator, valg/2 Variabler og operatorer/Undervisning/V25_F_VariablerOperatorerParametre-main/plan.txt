@@ -1,0 +1,8 @@
+1) Bensinsautomat!
+- Side hvor jeg kan fylle inn bensinspris
+- Fylle inn liter bensin
+- Kalkuler knapp
+- Betale
+- Lommebok
+
+23.36kr

@@ -1,0 +1,29 @@
+.main h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.task2 {
+    margin: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 30px);
+    grid-template-rows: repeat(2, 30px);
+    grid-template-areas: 
+        'number arrowUp'
+        'number arrowDown';
+    
+}
+
+.number {
+    grid-area: number;
+    font-size: 40px;
+    align-content: center;
+}
+
+.arrowUp {
+    grid-area: arrowUp;
+}
+
+.arrowDown {
+    grid-area: arrowDown;
+}

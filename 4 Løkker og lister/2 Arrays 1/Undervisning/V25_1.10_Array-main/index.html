@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+    <style>
+        .box {
+            height: 3cqh;
+        }
+
+        .color {
+            border: 1px solid gray;
+            border-radius: 15px;
+            margin: 10px;
+            width: 200px;
+            overflow: hidden;
+        }
+
+        .topBox {
+            padding: 4px 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #484848;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        /*
+            CRUD
+                Create
+                Read
+                Update
+                Delete
+        */
+
+        let colors = ['red', 'green', 'blue', 'yellow', 'hotpink']; 
+        let isAdding = false;
+        let addColorName = '';       
+
+
+        updateView();
+        function updateView() {
+            debugger;
+            let addColorHtml = createAddColorHtml();
+            document.getElementById('app').innerHTML =/*HTML*/`
+            ${createAddColorHtml()}
+            <div class="colors">
+                ${createColorsHtml()}                             
+            </div>
+            `;
+        }
+
+        function createAddColorHtml() {            
+            if(!isAdding) {
+                return `<button onclick="toggleInput()">+</button>`;
+            }
+            return /*HTML*/`<input 
+                    type="text"
+                     oninput="addColorName = this.value"
+                     value="${addColorName}"
+                     >
+                <button onclick="addColor()">Add</button>
+                `; 
+        }
+
+        function createColorsHtml() {
+            let colorsHtml = '';
+            let index = 0;
+            for(let color of colors) {
+                colorsHtml += createColorHtml(color, index);
+                index++;
+            }
+
+            // for(let i = 0; i < colors.length; i++) {
+            //     colorsHtml += createColorHtml(colors[i], i);
+            // }
+
+            // for(let colorIndex in colors) {
+            //     colorsHtml += createColorHtml(colors[colorIndex], colorIndex);
+            // }
+
+            // let index = 0;
+            // while(index < colors.length) {
+            //     colorsHtml += createColorHtml(colors[index], index);
+            //     index++;
+            // }
+
+            return colorsHtml;
+        }
+
+        function createColorHtml(color, index) {
+            return /*HTML*/`
+            <div class="color">
+                    <div class="topBox">
+                        <div>${color}</div>
+                        <button onclick="deleteColor(${index})">x</button>
+                    </div>
+                    <div style="background-color: ${color}" class="box"></div>
+            </div>`;
+        }
+
+        function deleteColor(index) {
+            colors.splice(index, 1);
+            updateView();
+        }
+
+        function toggleInput() {
+            isAdding = !isAdding;
+            updateView();
+        }
+
+        function addColor() {
+            colors.push(addColorName);
+            isAdding = false;
+            addColorName = '';
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

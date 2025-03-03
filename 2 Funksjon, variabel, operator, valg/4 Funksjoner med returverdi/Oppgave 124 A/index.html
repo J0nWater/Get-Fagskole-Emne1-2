@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 124 A</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        
+        function updateView() {
+            document.getElementById('app').innerHTML = 
+                createShoppingCart('Keyboard', 129, 3)
+            
+        }
+
+        function createShoppingCart(item, price, quantity){
+            let totalPrice = quantity * price;
+            return /*HTML*/`
+                <div>Quantity: ${quantity} pcs.<br> 
+                    Item: ${item}<br>
+                    Price: ${price}kr.<br> 
+                    Total price:${totalPrice}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

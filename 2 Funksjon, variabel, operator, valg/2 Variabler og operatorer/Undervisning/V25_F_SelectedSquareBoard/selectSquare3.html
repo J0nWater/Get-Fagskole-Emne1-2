@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(8, 100px);
+        }
+
+        #board>div {
+            border: 1px solid lightblue;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board">
+    </div>
+    <button onclick="changePosition(1)">Right</button>
+    <button onclick="changePosition(8)">Down</button>
+    <button onclick="changePosition(-1)">Left</button>
+    <button onclick="changePosition(-8)">Up</button>
+
+    <script>
+        let selectedSquareIndex = 7;
+        const size = 64;
+
+        showBoard();
+
+        function showBoard() {
+            // del 1: alle rutene som ikke er valgt før den valgte
+            document.getElementById('board').innerHTML = ''
+            const lengthPart1 = selectedSquareIndex;
+            addEmptyBoxes(lengthPart1);
+           
+
+            // del 2: den valgte ruten
+            const part2 = '<div class="selected"></div>';
+            document.getElementById('board').innerHTML += part2;
+
+            // del 3  alle rutene som ikke er valgt etter den valgte
+            const lengthPart3 = size - (selectedSquareIndex + 1);
+            addEmptyBoxes(lengthPart3);
+        }
+
+        function changePosition(position){
+            selectedSquareIndex += position;
+            if(isOutOfBounds()){
+                selectedSquareIndex -= position;
+            }
+            showBoard(); 
+        }
+
+        function isOutOfBounds(){
+            // if(((selectedSquareIndex + 1) % 8 !== 0)){
+            //     return true; 
+            // } else {
+            //     return false;
+            // }
+            let minPosition = 0;
+            return selectedSquareIndex < minPosition || selectedSquareIndex > size - 1
+        }
+
+        function addEmptyBoxes(amount){
+            const pattern = '<div></div>';
+            document.getElementById('board').innerHTML += ''.padEnd(pattern.length * amount, pattern)
+        }
+
+        // function goRight(){
+        //     selectedSquareIndex++;
+        //     showBoard();
+        // }
+        // function goDown(){
+        //     selectedSquareIndex += 8;
+        //     showBoard()
+        // }
+
+    </script>
+</body>
+
+</html>

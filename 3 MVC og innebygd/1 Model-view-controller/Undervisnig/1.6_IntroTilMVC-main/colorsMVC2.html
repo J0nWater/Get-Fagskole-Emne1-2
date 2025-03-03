@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 50vw;
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>        
+        // Model
+        let greenLevel = 0;
+        let blueLevel = 0;
+        let redLevel = 255;
+
+
+        // View        
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div id="main" style="background-color: rgb(${redLevel}, ${greenLevel}, ${blueLevel});"></div>
+                <div>Rød
+                    <button onclick="changeColors(25, 0, 0)">+</button> 
+                    <button onclick="changeColors(-25, 0, 0)">-</button>
+                </div>
+                <div>Grønn
+                    <button onclick="changeColors(0, 25, 0)">+</button> 
+                    <button onclick="changeColors(0, -25, 0)">-</button>
+                </div>
+                <div>Blå
+                    <button onclick="changeColors(0, 0, 25)">+</button> 
+                    <button onclick="changeColors(0, 0, -25)">-</button>
+                </div>
+            `;
+        }
+
+        // Controller
+        function changeColors(redChange, greenChange, blueChange) {            
+            redLevel += redChange;
+            greenLevel += greenChange;
+            blueLevel += blueChange;
+            
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

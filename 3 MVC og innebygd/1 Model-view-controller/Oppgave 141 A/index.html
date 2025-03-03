@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 141 A</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+
+    <script>
+        //Model
+        let points = 1;
+        
+        //View
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>${points}</div>
+            <button onclick="addPoints()">Jukseknapp</button>    
+            `;
+        }
+
+        //Controller
+        function addPoints() {
+            points *= 10;
+            updateView();
+        }
+
+        //Oppgave 141 A   Lag en liten "jukseknapp" som både tidobler poengene dine og antall poeng per klikk.
+    </script>
+
+</body>
+</html>
