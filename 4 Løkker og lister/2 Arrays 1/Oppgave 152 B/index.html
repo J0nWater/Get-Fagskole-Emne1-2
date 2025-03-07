@@ -19,11 +19,11 @@
         
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-                Sum of ${numbers} is ${getSum(numbers)}
+                Sum of ${numbers} is ${getSum()}
             `;
         }
 
-        function getSum(aaa) {
+        function getSum() {
             let sum = 0;
             for(let number of numbers) {
                 sum += number;

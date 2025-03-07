@@ -1,0 +1,6 @@
+ZonaSoft Ltd:
+Arbeidsfordeling:
+Gytis: Jobber med insertCoin funksjon.
+Einar: Jobber med buyBeer :D funksjon.
+Goitom: Jobber med takeCoins funksjon.
+Daniel: Jobber med takeBeer.

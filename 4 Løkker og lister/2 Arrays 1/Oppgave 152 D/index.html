@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>152 D</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+        let text = '';
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <textarea onchange="cleanText(this.value)" rows="8" cols="50" placeholder="enter text"></textarea>
+                <br>   
+                <button onclick="countWords()">Count words</button>
+                <div>${text}</div>
+            `;
+        }
+
+        function cleanText(inputText) {
+            for(let i = 0; i < inputText.length; i++) {
+                let symbol = inputText[i];
+                text += symbol;
+            }
+            updateView()
+        }
+        console.log(text)
+
+        function countWords() {
+
+        }
+        
+    </script>
+</body>
+</html>

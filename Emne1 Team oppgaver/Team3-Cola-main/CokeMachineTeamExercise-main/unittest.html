@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.4.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.4.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/controller.js"></script>
+
+    <script>
+        // model
+        let wallet, coinsInserted, coinsReturned, beersInStore, isBeerInDelivery;
+
+        function initModel() {
+            wallet = [0, 0, 0, 0];
+            coinsInserted = [0, 0, 0, 0];
+            coinsReturned = [0, 0, 0, 0];
+            beersInStore = 5;
+            isBeerInDelivery = false;
+        }
+
+        // dummy view
+        function updateView() { }
+
+        QUnit.test('kjøpe øl - vekslepengene - alle mynter i automat', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(20);
+            insertCoin(20);
+            wallet = [5, 5, 5, 7];
+
+            // act
+            buyBeer();
+
+            // assert
+            assert.deepEqual(coinsReturned, [0, 0, 0, 0]);
+            assert.deepEqual(wallet, [5, 4, 4, 7]);
+        });
+
+        QUnit.test('kjøpe øl - vekslepengene - kun 5kr og 1kr i automat', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(20);
+            insertCoin(20);
+            wallet = [0, 0, 0, 0]
+
+            // act
+            buyBeer();
+
+            // assert
+            assert.deepEqual(coinsReturned, [0, 0, 0, 0]);
+            assert.deepEqual(wallet, [0, 0, 0, 0]);
+        });
+
+        QUnit.test('kjøpe øl - nok penger', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(20);
+            insertCoin(5);
+
+            // act
+            buyBeer();
+
+            // assert
+            assert.equal(isBeerInDelivery, false);
+        });
+
+        QUnit.test('kjøpe øl - for lite penger', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(5);
+
+            // act
+            buyBeer();
+
+            // assert
+            assert.equal(isBeerInDelivery, false);
+        });
+
+        QUnit.test('angre', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(1);
+            insertCoin(5);
+
+            // act
+            returnCoins();
+
+            // assert
+            assert.equal(coinsReturned[0], 0);
+            assert.equal(coinsReturned[0], 0);
+            // eller
+            assert.deepEqual(coinsReturned, [0, 0, 0, 0])
+        });
+
+        QUnit.test('ta myntene', function (assert) {
+            // arrange
+            initModel();
+            insertCoin(1);
+            insertCoin(5);
+            returnCoins();
+
+            // act
+            takeCoins();
+
+            // assert
+            assert.deepEqual(coinsReturned, [0, 0, 0, 0])
+        });
+    </script>
+</body>
