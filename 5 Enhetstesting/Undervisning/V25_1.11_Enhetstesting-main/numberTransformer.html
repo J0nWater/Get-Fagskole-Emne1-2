@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number transformer</title>
+    <script src="numberTransformer.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let transformedNumber;
+        let numberToTransform;
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <input type="number" onchange="numberToTransform = this.valueAsNumber">
+                <button onclick="setTransformedNumber()">Gjør om</button>
+                ${transformedNumber ? '<h1>Resultat</h1>' + transformedNumber : ''}
+            `;
+        }        
+
+    </script>
+</body>
+</html>

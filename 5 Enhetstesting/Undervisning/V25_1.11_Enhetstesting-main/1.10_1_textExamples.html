@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array text examples</title>
+</head>
+
+<body>
+    <script>
+        let allColors = [
+            'red', 'lightgreen', 'green', 'blue', 'yellow',
+            'gray', 'black'];
+
+        function hasColor(colors, searchColor) {
+            for(let color of colors) {
+                if(color == searchColor)
+                    return true;
+            }
+
+            return false;
+        }
+
+        function hasColorWithName(colors, colorName) {
+            for(let color of colors) {
+                if(color.includes(colorName))
+                    return true;
+            }
+
+            return false;
+        }
+
+        function searchForColorByName(colors, colorName) {
+            for(let color of colors) {
+                if(color.includes(colorName))
+                    return color;
+            }
+
+            return null;
+        }
+
+        function getColorsByName(colors, colorName) {
+            let matchingColors = [];
+            for(let color of colors) {
+                if(color.includes(colorName))
+                    matchingColors.push(color);
+            }
+
+            return matchingColors;
+        }
+
+        function countColorsWithName(colors, colorName) {
+            // return getColorsByName(colors, colorName).length;
+            let count = 0;
+            for(let color of colors) {
+                if(color.includes(colorName))
+                    count++;
+            }
+
+            return count;
+        }
+
+        function getLongestColorName(colors) {
+            let longestColorName = '';
+            for(let color of colors) {
+                if(color.length > longestColorName.length) {
+                    longestColorName = color;
+                }
+            }            
+
+            return longestColorName;
+        }
+
+    </script>
+
+</body>
+
+</html>

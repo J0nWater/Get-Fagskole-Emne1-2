@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.24.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.24.1.js"></script>
+  <script src="clicker.js"></script>  
+
+  <script>
+    let points = 0;
+    let pointsPerClick = 1;
+    let smileyIndex = 0;
+
+    function updateView() { }
+
+    QUnit.test('Normal click', function (assert) {
+        points = 0;
+        pointsPerClick = 1;
+        smileyIndex = 0;
+
+        doClick();
+
+        assert.equal(points, 1);
+    });
+
+    QUnit.test('Normal upgrade', function (assert) {
+        points = 11;
+        pointsPerClick = 1;
+        smileyIndex = 0;
+        
+        buyUpgrade();
+        assert.equal(pointsPerClick, 2);
+        assert.equal(points, 1);        
+    });
+
+    QUnit.test('Not enough points to upgrade', function (assert) {
+        points = 9;
+        pointsPerClick = 1;
+        smileyIndex = 0;
+        
+        buyUpgrade();
+        assert.equal(pointsPerClick, 1);
+        assert.equal(points, 9);        
+    });
+  </script>
+</body>
+</html>

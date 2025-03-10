@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>        
+    <script src="numberTransformer.js"></script>
+
+    <script>
+        let transformedNumber;
+        let numberToTransform = 2;
+
+        function updateView() {}
+        QUnit.test('Correct number is set', function (assert) {            
+            setTransformedNumber();
+            assert.equal(transformedNumber, 4);
+        });
+
+        QUnit.test('Correct number is set v2', function (assert) {            
+            numberToTransform = 3;
+            setTransformedNumber();
+            assert.equal(transformedNumber, 9);
+        });
+
+        QUnit.test('Even number is doubled', function (assert) {            
+            const result = getTransformedNumber(2);
+            assert.equal(result, 4);
+        });
+
+        QUnit.test('Even number is doubled v2', function (assert) {            
+            const result = getTransformedNumber(10);
+            assert.equal(result, 20);
+        });
+
+        QUnit.test('Odd number is tripled', function (assert) {            
+            const result = getTransformedNumber(11);
+            assert.equal(result, 33);
+        });
+
+        QUnit.test('Zero returns 0', function (assert) {            
+            const result = getTransformedNumber(0);
+            assert.equal(result, 0);
+        });
+
+        QUnit.test('Negative number returns the absolute number', function (assert) {            
+            const result = getTransformedNumber(-11);
+            assert.equal(result, 11);
+        });
+    </script>
+</body>
+
+</html>

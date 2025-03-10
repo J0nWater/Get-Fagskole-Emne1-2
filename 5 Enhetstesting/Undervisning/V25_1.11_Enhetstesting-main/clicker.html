@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        #app {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #image {
+            font-size: 120px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #pointsInfo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+    <script src="clicker.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let points = 0;
+        let pointsPerClick = 1;
+        let smileyIndex = 0;
+
+        // view
+        updateView();
+        function updateView() {
+            let smiley = smileyIndex == 0 ? '😀' : '😁';
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+            `;
+        }
+
+    
+    </script>
+</body>
+
+</html>

@@ -16,26 +16,44 @@
     
     <script>
         let text = '';
+        const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå ';
 
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
                 <textarea onchange="cleanText(this.value)" rows="8" cols="50" placeholder="enter text"></textarea>
                 <br>   
                 <button onclick="countWords()">Count words</button>
-                <div>${text}</div>
             `;
         }
 
         function cleanText(inputText) {
-            for(let i = 0; i < inputText.length; i++) {
-                let symbol = inputText[i];
-                text += symbol;
+            for(let char of inputText) {
+                if(allowedChars.includes(char)) {
+                    text += char; 
+                } 
             }
-            updateView()
         }
-        console.log(text)
-
+        
         function countWords() {
+            let allWords = text.split(' ')
+            let words = [];
+            let wordCounts = [];
+
+            for(let word of allWords) {
+                if(words.indexOf(word) == -1) {
+                    words.push(word);
+                    wordCounts.push(1);
+                }
+                else {
+                    wordCounts[words.indexOf(word)] += 1;
+                }
+                
+            }
+            console.log('all words', allWords);  
+            console.log('words', words);  
+            console.log('word counts', wordCounts);  
+            text = '';
+            updateView();
 
         }
         

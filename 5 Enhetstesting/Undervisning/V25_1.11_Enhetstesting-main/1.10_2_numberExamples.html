@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array number examples</title>
+</head>
+<body>
+    <script>
+         let firstNumbers = [1, 2, 3, 4, 5];
+         let secondNumbers = [1, 5, 3, 4, 2];
+
+         function isSorted(numbers) {
+            let previousNumber = numbers[0];
+            for(let number of numbers) {
+                if(number < previousNumber) {
+                    return false;
+                }   
+                previousNumber = number;          
+            }
+
+            return true;
+         }
+
+         function isSortedV2(numbers) {
+            
+         }
+    </script>
+</body>
+</html>

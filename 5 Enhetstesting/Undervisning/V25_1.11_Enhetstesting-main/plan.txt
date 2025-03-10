@@ -1,0 +1,19 @@
+0.5: Fortsettelse fra sist: mer om array (+ referansetype)
+
+Enhetstesting
+1: Hva er enhetstesting  
+ - QUnit
+    - https://qunitjs.com/
+2: Mange perspektiver på enhetstesting 
+   - korrekthet
+   - regresjon / regresjonsfeil
+   - testdrevet utvikling
+   - test coverage
+   - rolle i smidig/agile metodikk
+   - testbar kode er bra kode - av og til er det vanskelig å teste fordi 
+     koden har for mange avhengigheter hit og dit - det kan man kan ofte
+     finne ut av når man prøver å teste, det har en stor verdi å identifisere
+     for mange avhengigheter
+3: Eksempler på testing
+   - spare tid ved feilretting og implementasjon
+4: Testdreven utvikling
