@@ -9,21 +9,56 @@
             background-color: #03262c;
             color: white;
         }
+
+        table {
+
+        }
+
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+            text-align: center;
+        }
     </style>
 </head>
 <body onload="updateView()">
     <div id="app"></div>
     
     <script>
+        let words = [];
+        let wordCounts = [];
         let text = '';
         const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå ';
 
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-                <textarea onchange="cleanText(this.value)" rows="8" cols="50" placeholder="enter text"></textarea>
-                <br>   
-                <button onclick="countWords()">Count words</button>
+                <textarea onchange="cleanText(this.value)" rows="20" cols="130" placeholder="enter text"></textarea><br>   
+                <button onclick="countWords()">Count words</button><br><br>
+
+                <table>
+                    <tr>
+                        ${createTableHeaderHtml()}
+                    </tr>
+                    <tr>
+                        ${createTableElementHtml()}
+                    </tr>
+                </table>
             `;
+        }
+
+        function createTableHeaderHtml(){
+            let html = '';
+            for(let word of words) {
+                html += `<th>${word}</th>`;
+            }
+            return html;
+        }
+        function createTableElementHtml(){
+            let html = '';
+            for(let wordCount of wordCounts) {
+                html += `<td>${wordCount}</td>`;
+            }
+            return html;
         }
 
         function cleanText(inputText) {
@@ -36,11 +71,9 @@
         
         function countWords() {
             let allWords = text.split(' ')
-            let words = [];
-            let wordCounts = [];
 
             for(let word of allWords) {
-                if(words.indexOf(word) == -1) {
+                if(words.indexOf(word) == -1 && word !== '') {
                     words.push(word);
                     wordCounts.push(1);
                 }
@@ -49,12 +82,11 @@
                 }
                 
             }
-            console.log('all words', allWords);  
-            console.log('words', words);  
-            console.log('word counts', wordCounts);  
-            text = '';
+ 
             updateView();
-
+            text = '';
+            words = [];
+            wordCounts = [];
         }
         
     </script>
