@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timespan demo</title>
+</head>
+<body>
+    <script>
+        let date1 = new Date('2025-03-01');
+        let date2 = new Date();
+
+        getDaysUntilChristmas();
+        function getTimeBetweenDates(firstDate, secondDate) {            
+            const firstDateMs = firstDate.getTime();
+            const secondDateMs = secondDate.getTime();
+            const timeSpanMs = Math.abs(firstDateMs - secondDateMs);
+            let seconds =  Math.floor(timeSpanMs / 1000);
+            let minutes = Math.floor(seconds / 60);            
+            let hours = Math.floor(minutes / 60);            
+            let days = Math.floor(hours / 24);
+            seconds = seconds % 60;
+            minutes = minutes % 60;
+            hours = hours % 24;
+
+            return {
+                days,
+                hours,
+                minutes,
+                seconds
+            }            
+        }
+
+        function getDaysUntilChristmas() {
+            const timeToChristmas = getTimeBetweenDates(new Date(), new Date('2025-12-24'));
+            console.log(`Det er ${timeToChristmas.days} dager til jul!`);
+        }
+    </script>
+</body>
+</html>

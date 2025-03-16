@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors v1</title>
+    <script src="1_model.js"></script>
+    <script src="1_view.js"></script>
+    <script src="1_controller.js"></script>
+    <style>
+        .box {
+            padding: 6px;
+            font-size: 150%;
+        }
+
+        .color {
+            border: 1px solid gray;
+            border-radius: 15px;
+            margin: 10px;
+            width: 400px;
+            overflow: hidden;
+        }
+
+        .topBox {
+            padding: 4px 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #484848;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="updateView()">
+    <div id="app"></div>
+</body>
+
+</html>

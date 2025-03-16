@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="index.js"></script>
+    <script>
+        function assertTextResult(assert, result, expected) {
+            assert.strictEqual(result.wordCount, expected.wordCount, "Antall ord er korrekt");
+            assert.strictEqual(result.letterCount, expected.letterCount, "Antall bokstaver er korrekt");
+            assert.strictEqual(result.nonLetterCount, expected.nonLetterCount, "Antall ikke-bokstavtegn er korrekt");
+            assert.strictEqual(result.mostCommonLetter, expected.mostCommonLetter, "Mest brukte bokstav er korrekt");
+            assert.strictEqual(result.longestWord, expected.longestWord, "Lengste ord er korrekt");
+        }
+
+        QUnit.test('1: Programmering er gøy', function (assert) {
+            const text = 'Programmering er gøy';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 3,
+                letterCount: 18,
+                nonLetterCount: 2,
+                mostCommonLetter: "r",
+                longestWord: "programmering"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('2: Programmering er gøy!', function (assert) {
+            const text = 'Programmering er gøy!';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 3,
+                letterCount: 18,
+                nonLetterCount: 3,
+                mostCommonLetter: "r",
+                longestWord: "programmering"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('3: Programmering??? Det er gøy!?!', function (assert) {
+            const text = 'Programmering??? Det er gøy!?!';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 4,
+                letterCount: 21,
+                nonLetterCount: 9,
+                mostCommonLetter: "r",
+                longestWord: "programmering"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('4:     ', function (assert) {
+            const text = '    ';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 0,
+                letterCount: 0,
+                nonLetterCount: 4,
+                mostCommonLetter: "",
+                longestWord: ""
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('5: JavaScript', function (assert) {
+            const text = 'JavaScript';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 1,
+                letterCount: 10,
+                nonLetterCount: 0,
+                mostCommonLetter: "a",
+                longestWord: "javascript"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('6: Det er DET dEt eR', function (assert) {
+            const text = 'Det er DET dEt eR';
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 5,
+                letterCount: 13,
+                nonLetterCount: 4,
+                mostCommonLetter: "e",
+                longestWord: "det"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('7: 1a2b c@d#', function (assert) {
+            const text = "1a2b c@d#";
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 2,
+                letterCount: 4,
+                nonLetterCount: 5,
+                mostCommonLetter: "a",
+                longestWord: "ab"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('8: ', function (assert) {
+            const text = "";
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 0,
+                letterCount: 0,
+                nonLetterCount: 0,
+                mostCommonLetter: "",
+                longestWord: ""
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('9: aaaaaa', function (assert) {
+            const text = "aaaaaa";
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 1,
+                letterCount: 6,
+                nonLetterCount: 0,
+                mostCommonLetter: "a",
+                longestWord: "aaaaaa"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('10: !@#$%^&*()_+-=[]{}|;:,.<>?', function (assert) {
+            const text = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 0,
+                letterCount: 0,
+                nonLetterCount: 26,
+                mostCommonLetter: "",
+                longestWord: ""
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+        QUnit.test('11: my  epic dragon ', function (assert) {
+            const text = "my  epic dragon ";
+            const result = analyzeText(text);
+            const expected = {
+                wordCount: 3,
+                letterCount: 12,
+                nonLetterCount: 4,
+                mostCommonLetter: "m",
+                longestWord: "dragon"
+            };
+
+            assertTextResult(assert, result, expected);
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+1: Oppgradere farge-app til liste av objekter - color themes
+   - CRUD-operasjonene
+   - Create Read Update Delete
+   - legge til rating, creator
+   - sortering, filtrering, paginering
+2: Intro Single Page Applications (SPA)
+   - forskjellige sider

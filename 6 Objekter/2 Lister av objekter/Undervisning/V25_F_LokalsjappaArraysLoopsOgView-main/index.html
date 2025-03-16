@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokalsjappa!</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        const view = {
+            home: 'homeView',
+            newItem: 'newItemView'
+        };
+
+        let items = [
+            {
+                name: 'Stiga',
+                price: 10000
+            },
+            {
+                name: 'Rossignol',
+                price: 2500
+            },
+            {
+                name: 'Trehjulssykkel',
+                price: 130
+            }
+        ];
+
+        let currentEditingItemIndex = -1;
+        let selectedSite = view.home;
+        let newItem = {};
+
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Lokalsjappa</h1>
+                ${createView()}                
+            `;
+        }
+
+        function createView() {
+            if (selectedSite == view.home) {
+                return createHomeView();
+            } else if (selectedSite == view.newItem) {
+                return createNewItemView();
+            }
+        }
+
+        function createHomeView() {
+            return /*HTML*/`                
+                <button onclick="setSite(view.newItem)">Add new item</button>
+                <table>
+                    <tr>
+                        <th>Navn</th>
+                        <th>Pris</th>
+                        <th>Valg</th>
+                    </tr>
+                    ${createItemRowsHtml()}
+                </table>
+            `;
+        }
+
+        function createItemRowsHtml() {
+            let html = '';
+            let index = 0;
+            for (const item of items) {
+                html += /*HTML*/`
+                 <tr>
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>
+                        <button onclick="deleteItem(${index})">X</button>
+                        <button onclick="editItem(${index})">Edit</button>
+                    </td>
+                </tr>              
+                `;
+                index++;
+            }
+
+            html += '';
+            return html;
+        }
+
+        function createNewItemView() {
+            return /*HTML*/`
+                <h2>Add item</h2>
+                <input placeholder="Name" onchange="newItem.name = this.value" value=${newItem.name ?? ''}>
+                <input placeholder="Price" onchange="newItem.price = this.value" value=${newItem.price ?? ''}>
+                <button onclick="registerOrEditItem()">Confirm</button>
+                <button onclick="resetNewItemAndGoHome()">Cancel</button>
+            `;
+        }
+
+        function deleteItem(index) {
+            items.splice(index, 1);
+            updateView();
+        }
+
+        function resetNewItemAndGoHome() {
+            currentEditingItemIndex = -1;   
+            newItem = {};
+            setSite(view.home);
+        }
+
+        function registerOrEditItem() {
+            if(currentEditingItemIndex != -1) {                
+                items[currentEditingItemIndex].name = newItem.name;
+                items[currentEditingItemIndex].price = newItem.price;
+                currentEditingItemIndex = -1;                
+            } else {
+                items.push(newItem);            
+            }            
+            
+            resetNewItemAndGoHome();
+        }
+
+        function editItem(index) {
+            currentEditingItemIndex = index;
+            newItem = {
+                name: items[index].name,
+                price: items[index].price
+            };
+            setSite(view.newItem);
+        }
+
+        function setSite(page) {
+            selectedSite = page;
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

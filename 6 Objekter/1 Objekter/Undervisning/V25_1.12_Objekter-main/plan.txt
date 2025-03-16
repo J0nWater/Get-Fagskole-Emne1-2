@@ -1,0 +1,16 @@
+Objekter
+1: Vise objekter grunnleggende i console
+
+Funksjoner som returnerer objekt
+   2: Eksempel: gjennomsnittfarge, gradient (liste), inv invertere. Endre lysere og mørkere. 
+   3: Eksempel: liste av tall inn => statistikk tilbake
+   4: Eksempel: tidsperiode i sekunder, minutter, timer
+5: Objekter inne i objekter - Hele modellen i et objekt
+   Eksempel: clicker
+6: Modellere virkeligheten, lister av objekter, neste time 
+   - men nå kan dere lage "alt"
+   - mer om dette i neste time!
+7: Problemer med referansetyper, objekter og lister som parametre
+  - const og let + begrensninger
+  - Kan man beskytte verdiene ved å deklarere objektet som const?  
+8: for in  

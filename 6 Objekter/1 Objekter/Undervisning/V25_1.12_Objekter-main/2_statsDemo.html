@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats demo v1</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let numbers = [1, 2, 4, 8, 16];
+        
+        updateView();
+        function updateView() {
+            let stats = createStats(numbers);            
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Sum: ${stats.sum}</h1>
+                Antall: ${stats.count}<br>
+                Min: ${stats.min}<br>
+                Max: ${stats.max}<br>
+                Snitt: ${stats.mean}
+            `;
+        }
+
+        function createStats(numbers) {
+            if(!numbers || numbers.length === 0) {
+                return { sum: 0, count: 0 }                
+            }
+
+            let min = numbers[0];
+            let max = numbers[0];
+            let sum = 0;
+
+            for(let number of numbers) {
+                sum += number;
+                if(number > max) {
+                    max = number;
+                }
+
+                if(number < min) {
+                    min = number;
+                }
+            }
+
+            let count = numbers.length;
+            let mean = sum / count;
+            
+            let stats = {
+                sum,
+                count,
+                min,
+                max,
+                mean
+            };
+
+            return stats;           
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        #app {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #image {
+            font-size: 120px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #pointsInfo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let model = {
+            points: 0,
+            pointsPerClick: 1,
+            smileyIndex: 0
+        }
+
+        // view
+        updateView();
+        function updateView() {
+            let smiley = model.smileyIndex == 0 ? '😀' : '😁';
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${model.points}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+            `;
+        }
+
+        function doClick() {
+            model.points += model.pointsPerClick;
+            model.smileyIndex = 1 - model.smileyIndex;
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (model.points < 10) return;
+            model.points -= 10;
+            model.pointsPerClick++;
+            updateView();
+        }
+    </script>
+</body>
+
+</html>

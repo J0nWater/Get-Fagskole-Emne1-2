@@ -25,11 +25,12 @@
     <div id="app"></div>
     
     <script>
+        //model
         let words = [];
         let wordCounts = [];
         let text = '';
         const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå ';
-
+        //view
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
                 <textarea onchange="cleanText(this.value)" rows="20" cols="130" placeholder="enter text"></textarea><br>   
@@ -61,6 +62,7 @@
             return html;
         }
 
+        //controller
         function cleanText(inputText) {
             for(let char of inputText) {
                 if(allowedChars.includes(char)) {

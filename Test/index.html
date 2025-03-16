@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        body {
+            background-color: #03262c;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="updateView()">
+    <div id="app"></div>
+    
+    <script>
+
+        function updateView() {
+            document.getElementById('app').innerHTML = 
+            getWordCount('labas kaip   gyveni ęėį æ æø /-*/-')
+        }
+
+        function isLetter(character) { 
+            return character.toLowerCase() != character.toUpperCase(); 
+        }
+
+    function getWordCount(text) {
+        let cleanedText = '';
+        let wordsQuantity = 0;
+        
+        for(let char of text) {
+            
+            if(isLetter(char) || char === ' ') {
+                cleanedText += char;
+            }	
+        }
+        console.log(cleanedText)
+
+    }
+        
+    </script>
+</body>
+</html>
