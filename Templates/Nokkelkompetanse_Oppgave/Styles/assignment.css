@@ -1,0 +1,86 @@
+.leftBar {
+    padding: 10px;
+    max-width: 20vw;
+    min-width: 20vw;
+    justify-items: center;
+    display: flex;
+}
+
+.leftBar button {
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.leftBarTerm {
+    font-size: 2.83vh;
+    margin: 10px 0;
+    width: 18vw;
+    padding: 10px;
+    justify-self: center;
+    background-color: rgb(255, 255, 255);
+    border: 3px outset rgb(255, 154, 95);
+}
+
+.leftBarWeek {
+    font-size: 2vh;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 15vw;
+    padding: 10px;
+    justify-self: center;
+    background-color: rgba(255, 177, 131, 0.904);
+    border: 3px outset rgb(255, 94, 0);
+}
+
+.leftBarDay {
+    font-size: 1.9vh;
+    margin: -2.6px;
+    padding: 6px 12px;
+    margin-bottom: -10px;
+    width: 12vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    justify-self: center;
+    border: 3px outset rgba(255, 123, 0, 0.904);
+    background-color: rgb(255, 255, 255) ease-in-out;
+}
+
+.leftBar button:hover {
+    color: rgb(160, 107, 107);
+    transition: background-color 0.3s ease-in-out;
+    border: 3px outset rgba(255, 123, 0, 0.904);
+    box-shadow: rgb(255, 203, 144) -1px 1px 8px;
+    background-color: rgba(255, 185, 104, 0.329);
+    transition: 0.5s ease-out;
+}
+.assignmentTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    min-height: 28vh;
+    margin: 75px auto;
+    border: 3px outset rgba(255, 123, 0, 0.904);
+    box-shadow: rgb(255, 203, 144) -1px 1px 10px;
+    background-color: rgba(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.5vh;
+    text-align: center;
+}
+.userNote {
+    width: 18em;
+    border: 3px outset rgba(255, 123, 0, 0.904);
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: flex;
+}

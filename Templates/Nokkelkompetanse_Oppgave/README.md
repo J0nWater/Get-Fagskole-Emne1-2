@@ -1,0 +1,2 @@
+# Nokkelkompetanse_Oppgave
+ 

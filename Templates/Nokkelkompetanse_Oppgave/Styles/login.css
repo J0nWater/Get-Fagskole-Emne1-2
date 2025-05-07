@@ -1,0 +1,144 @@
+#loginPopupForm {
+    box-sizing: border-box;
+    background: rgb(225, 225, 225);
+    position: absolute;
+    top: -150%;
+    left: 40vw;
+    opacity: 0;
+    transform: translate(-50%, -50) scale(1.25);
+    width: 400px;
+    padding: 20px 30px;
+    border: 3px outset rgba(255, 123, 0, 0.904);
+    box-shadow: rgb(255, 203, 144) -1px 1px 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: top 0ms ease-in-out 200ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+
+#loginPopupForm.active {
+    top: 15%;
+    opacity: 1;
+    transform: translate(-50%, -50) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+
+#loginPopupForm button {
+    background-color: inherit;
+}
+
+#loginPopupForm button:hover {
+    background-color: rgba(255, 68, 0, 0.125);
+    transition: background-color 25 ease-in-out 25ms
+    ;
+}
+
+.closeLogin {
+    position: inherit;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    background: rgb(50, 50, 50);
+    border: 2px solid rgba(50, 50, 50);
+    /* box-shadow: 1px 1px 1px 1px rgba(50, 50, 50); */
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* .closeLogin:hover {
+    border: 2px solid rgba(255, 68, 0, 0.75);
+} */
+
+.h2Login {
+    text-align: center;
+    color: black;
+    margin: 10px 0px 20px;
+    font-size: 25px;
+}
+
+.loginForm {
+    margin: 15px 0px;
+}
+
+.loginForm label {
+    font-size: 14px;
+    color: black;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 95%;
+    padding: 10px 0px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.loginForm input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.loginForm button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: black;
+    background-color: blue;
+    background: blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#loginButton {
+    float: right;
+    margin-right: 3px;
+}
+
+#loginButton button,
+.header button {
+    position: relative;
+    margin-top: 2px;
+    padding: 12.5px;
+    border: 3px outset rgb(148, 83, 23);
+    cursor: pointer;
+    background-color: #ffae7cbe;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 10px;
+    text-align: center;
+   
+}
+
+#loginButton button:hover,
+.header button:hover {
+    cursor: pointer;
+    transform: translate(-50%, -50) scale(1);
+    transition: background-color 25ms ease-in-out 100ms,
+        border 100ms ease-in-out 0ms,
+        box-shadow 25ms ease-in-out 0ms;
+    ;
+    background-color: rgba(255, 177, 131, 0.904);
+    border: 3px outset rgb(255, 94, 0);
+    box-shadow: 1px 1px 1px 1px rgba(255, 136, 0, 0.76);
+    transition: 0.5s ease-out;
+    color: black;
+}
+
+.closeLogin:hover {
+    transition: background-color 25ms ease-in-out 100ms,
+        border 100ms ease-in-out 0ms,
+        box-shadow 25ms ease-in-out 0ms;
+    ;
+    background-color: rgba(255, 177, 131, 0.904);
+    border: 2.2px outset rgb(255, 94, 0);
+    box-shadow: 1px 1px 1px 1px rgba(255, 136, 0, 0.76);
+}

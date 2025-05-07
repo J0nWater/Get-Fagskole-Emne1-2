@@ -1,0 +1,51 @@
+body {
+    margin: 0px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+        "header header header"
+        "leftBar mainContent rightBar"
+    ;
+    height: 100vh;
+}
+
+main>div {
+    border: solid black 1px;
+}
+
+.header {
+    grid-area: header;
+    background-color:#ffdec4;
+    border:3px outset #FFA500;
+}
+.header button{
+    grid-area: header;
+    background-color:#FFF8F0;
+    border: px inset #FFA500;
+}
+
+.leftBar {
+    grid-area: leftBar;
+    width: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color:#FFF8F0;
+    border: 3px inset #FFA500;
+}
+
+.mainContent {
+    grid-area: mainContent;
+    background-color:#FFF8F0;
+    
+}
+
+.rightBar {
+    grid-area: rightBar;
+    background-color:#FFF8F0;
+    border: 3px inset #FFA500;
+}
